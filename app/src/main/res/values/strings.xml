@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ThumbnailApp</string>
+    <string name="upload_bn">Upload</string>
 </resources>

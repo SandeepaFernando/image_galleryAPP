@@ -53,8 +53,8 @@ public class ShowLivePreviewCameraWindow extends SurfaceView implements SurfaceH
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-//        camera.stopPreview();
-//        camera.release();
+        camera.stopPreview();
+        camera.release();
 
     }
 }

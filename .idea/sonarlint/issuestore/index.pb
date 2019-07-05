@@ -13,3 +13,11 @@ e
 5app/src/main/java/com/example/thumbnailapp/Tools.java,f/b/fbd28385fcfd548dd545f770017aa209a67e57f2
 n
 >app/src/main/java/com/example/thumbnailapp/CameraActivity.java,2/2/22b9f566e95e1949d7742d6f0005a89f328d9d26
+t
+Dapp/src/main/java/com/example/thumbnailapp/ShowCameraForCapture.java,7/b/7ba7707180bc46719170425be9591298040345b7
+{
+Kapp/src/main/java/com/example/thumbnailapp/ShowLivePreviewCameraWindow.java,b/5/b5348307f2af1547520a8f2fa7984fc53e27ab11
+[
++app/src/main/res/layout/activity_camera.xml,4/b/4b92cbe465409761b8eb8c1cc7f4f5c8db8699df
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0

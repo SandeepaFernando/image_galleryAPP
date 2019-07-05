@@ -1,18 +1,7 @@
 
-nsquid:CommentedOutCodeLineT"<This block of commented-out lines of code should be removed.(½‚Ï±üÿÿÿÿ8ëüïß»-
-vsquid:ModifiersOrderCheck!"EReorder the modifiers to comply with the Java Language Specification.(ŽÉšŽøÿÿÿÿ8ÚÞ»¹-
-isquid:CommentedOutCodeLineh"<This block of commented-out lines of code should be removed.(”•‘8Ï­—Ý»-
-osquid:S1068!"LRemove this unused "READ_EXTERNAL_STORAGE_PERMMISSION_RESULT" private field.(ŽÉšŽøÿÿÿÿ8Ï­—Ý»-
-nsquid:CommentedOutCodeLined"<This block of commented-out lines of code should be removed.(îìŽ¹úÿÿÿÿ8Ï­—Ý»-
-nsquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8žþá»-
-hsquid:CommentedOutCodeLinef"<This block of commented-out lines of code should be removed.(¨¶ç88Ï­—Ý»-
-nsquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(³à‘Ôøÿÿÿÿ8ÄöŠÝ»-
-ˆsquid:S1450#"eRemove the "mThumbnailRecyclerView" field and declare it as a local variable in the relevant methods.(Îé¨±øÿÿÿÿ8¹½â»¹-
-vsquid:ModifiersOrderCheck""EReorder the modifiers to comply with the Java Language Specification.(ÞÏÝ“úÿÿÿÿ8ÚÞ»¹-
-jsquid:CommentedOutCodeLine…"<This block of commented-out lines of code should be removed.(”•‘8ÞÂŠÝ»-
-osquid:CommentedOutCodeLine‹"<This block of commented-out lines of code should be removed.(ËÀÜÚþÿÿÿÿ8ÞÂŠÝ»-
-osquid:CommentedOutCodeLineî"<This block of commented-out lines of code should be removed.(Æ§‚¹ýÿÿÿÿ8ò¾“‹»-
-isquid:CommentedOutCodeLinel"<This block of commented-out lines of code should be removed.(†ùÒ£8Ï­—Ý»-
-jsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(”•‘8ÞÂŠÝ»-
-jsquid:CommentedOutCodeLine€"<This block of commented-out lines of code should be removed.(×ýÀÝ8ÞÂŠÝ»-
-isquid:CommentedOutCodeLine["<This block of commented-out lines of code should be removed.(¿…ž¨8žþá»-
+ˆsquid:S1450""eRemove the "mThumbnailRecyclerView" field and declare it as a local variable in the relevant methods.(Îé¨±øÿÿÿÿ8¹½â»¹-
+vsquid:ModifiersOrderCheck "EReorder the modifiers to comply with the Java Language Specification.(“ˆŸâøÿÿÿÿ8€ðÒ†¼-
+vsquid:ModifiersOrderCheck!"EReorder the modifiers to comply with the Java Language Specification.(ÞÏÝ“úÿÿÿÿ8ÚÞ»¹-
+nsquid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8žþá»-
+isquid:CommentedOutCodeLine]"<This block of commented-out lines of code should be removed.(¿…ž¨8žþá»-
+osquid:CommentedOutCodeLineÖ"<This block of commented-out lines of code should be removed.(Æ§‚¹ýÿÿÿÿ8ò¾“‹»-
