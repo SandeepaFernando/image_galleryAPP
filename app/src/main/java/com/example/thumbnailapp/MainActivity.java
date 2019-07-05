@@ -1,7 +1,6 @@
 package com.example.thumbnailapp;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -30,7 +29,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    private final static int READ_EXTERNAL_STORAGE_PERMMISSION_RESULT = 0;
+    private final static int PERMMISSION_RESULT = 1;
     private final static int MEDIASTORE_LOADER_ID = 0;
     private RecyclerView mThumbnailRecyclerView;
     private MediaStoreAdapter mMediaStoreAdapter;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     private ActionModeCallback actionModeCallback;
     android.hardware.Camera camera;
     FrameLayout camFrame;
-    ShowCameraWindow showCameraWindow;
+    ShowLivePreviewCameraWindow showCameraWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,22 +71,25 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        //checkReadExternalStoragePermission();
         actionModeCallback = new ActionModeCallback();
 
         verifyUserPermission();
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            Log.i("CAMERAPERMISSION", "Granted");
 
-        camFrame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Intent camintent = new Intent(MainActivity.this, CameraActivity.class);
-//                startActivity(camintent);
-            }
-        });
+            camFrame.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent camintent = new Intent(MainActivity.this, CameraActivity.class);
+                    startActivityForResult(camintent, 1);
+                }
+            });
+        }
     }
 
-//    @Override
+
+//        @Override
 //    protected void onResume() {
 //        Log.i("RESUME","ON RESUME");
 //        verifyUserPermission();
@@ -97,20 +99,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        switch (requestCode) {
-//            case READ_EXTERNAL_STORAGE_PERMMISSION_RESULT:
-//                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    //Call cursor loader
-//                    getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
-//                }
-//                break;
-//            default:
-//                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        }
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                permissions[0]) == PackageManager.PERMISSION_DENIED
+                permissions[0]) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                permissions[1]) == PackageManager.PERMISSION_DENIED) {
+                permissions[1]) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                permissions[2]) == PackageManager.PERMISSION_GRANTED){
 
             verifyUserPermission();
 
@@ -125,41 +119,23 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-//    private void checkReadExternalStoragePermission() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) ==
-//                    PackageManager.PERMISSION_GRANTED) {
-//                // Start cursor loader
-//                getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
-//            } else {
-//                if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
-//                    Toast.makeText(this, "App needs to view thumbnails", Toast.LENGTH_SHORT).show();
-//                }
-//                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-//                        READ_EXTERNAL_STORAGE_PERMMISSION_RESULT);
-//            }
-//        } else {
-//            // Start cursor loader
-//            getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
-//        }
-//    }
-
-
     private void verifyUserPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE};
+            String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
             if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                     permissions[0]) == PackageManager.PERMISSION_GRANTED
                     && ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    permissions[1]) == PackageManager.PERMISSION_GRANTED) {
+                    permissions[1]) == PackageManager.PERMISSION_GRANTED
+                    && ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                    permissions[2]) == PackageManager.PERMISSION_GRANTED){
 
                 getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
                 camera_window();
 
             } else {
                 Toast.makeText(this, "Permision Denyed", Toast.LENGTH_SHORT).show();
-                ActivityCompat.requestPermissions(MainActivity.this, permissions, 1);
+                ActivityCompat.requestPermissions(MainActivity.this, permissions, PERMMISSION_RESULT);
             }
         }
     }
@@ -256,7 +232,7 @@ public class MainActivity extends AppCompatActivity
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             camera = Camera.open();
 
-            showCameraWindow = new ShowCameraWindow(this, camera);
+            showCameraWindow = new ShowLivePreviewCameraWindow(this, camera);
             camFrame.addView(showCameraWindow);
         }
     }

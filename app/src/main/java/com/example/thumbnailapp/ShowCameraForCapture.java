@@ -8,11 +8,11 @@ import android.view.SurfaceView;
 
 import java.io.IOException;
 
-public class ShowCameraWindow extends SurfaceView implements SurfaceHolder.Callback {
+public class ShowCameraForCapture extends SurfaceView implements SurfaceHolder.Callback{
     Camera camera;
     SurfaceHolder surfaceHolder;
 
-    public ShowCameraWindow(Context context, Camera camera) {
+    public ShowCameraForCapture(Context context, Camera camera) {
         super(context);
         this.camera = camera;
         surfaceHolder = getHolder();
@@ -34,9 +34,9 @@ public class ShowCameraWindow extends SurfaceView implements SurfaceHolder.Callb
             parameters.setRotation(0);
         }
 
-
+        camera.setParameters(parameters);
         try {
-            camera.setParameters(parameters);
+
             camera.setPreviewDisplay(holder);
             camera.startPreview();
 
@@ -52,6 +52,8 @@ public class ShowCameraWindow extends SurfaceView implements SurfaceHolder.Callb
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+        camera.startPreview();
+        camera.release();
 
     }
 }

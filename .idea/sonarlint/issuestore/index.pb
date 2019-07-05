@@ -11,7 +11,5 @@ q
 Aapp/src/main/java/com/example/thumbnailapp/MediaStoreAdapter.java,6/c/6cc1e0db2d2d62ec68ca00733707a7d8a22595d2
 e
 5app/src/main/java/com/example/thumbnailapp/Tools.java,f/b/fbd28385fcfd548dd545f770017aa209a67e57f2
-p
-@app/src/main/java/com/example/thumbnailapp/ShowCameraWindow.java,7/1/710a8756386f94b270c24fb6d71fa32fe1e0dffd
 n
 >app/src/main/java/com/example/thumbnailapp/CameraActivity.java,2/2/22b9f566e95e1949d7742d6f0005a89f328d9d26
