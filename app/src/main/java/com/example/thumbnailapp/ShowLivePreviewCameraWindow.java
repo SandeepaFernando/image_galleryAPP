@@ -1,5 +1,6 @@
 package com.example.thumbnailapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.hardware.Camera;
@@ -7,8 +8,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import java.io.IOException;
-import java.util.List;
 
+@SuppressLint("ViewConstructor")
 public class ShowLivePreviewCameraWindow extends SurfaceView implements SurfaceHolder.Callback {
     Camera camera;
     SurfaceHolder surfaceHolder;
@@ -22,6 +23,7 @@ public class ShowLivePreviewCameraWindow extends SurfaceView implements SurfaceH
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        camera = Camera.open();
         Camera.Parameters parameters = camera.getParameters();
 
         if (this.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE) {

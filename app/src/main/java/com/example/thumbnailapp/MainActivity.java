@@ -82,20 +82,13 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onClick(View v) {
                     Intent camintent = new Intent(MainActivity.this, CameraActivity.class);
-                    startActivityForResult(camintent, 1);
+                    startActivity(camintent);
+                    //camera.stopPreview();
+                    //camera.release();
                 }
             });
         }
     }
-
-
-//        @Override
-//    protected void onResume() {
-//        Log.i("RESUME","ON RESUME");
-//        verifyUserPermission();
-//        super.onResume();
-//
-//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -230,7 +223,7 @@ public class MainActivity extends AppCompatActivity
 
     public void camera_window() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            camera = Camera.open();
+            //camera = Camera.open();
 
             showCameraWindow = new ShowLivePreviewCameraWindow(this, camera);
             camFrame.addView(showCameraWindow);
