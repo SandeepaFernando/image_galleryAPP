@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
+            LoaderManager.getInstance(this).initLoader(MEDIASTORE_LOADER_ID, null, this);
         }
 
     }
@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity
                     && ContextCompat.checkSelfPermission(this.getApplicationContext(),
                     permissions[2]) == PackageManager.PERMISSION_GRANTED){
 
-                getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
+                LoaderManager.getInstance(this).initLoader(MEDIASTORE_LOADER_ID, null, this);
+                //getSupportLoaderManager().initLoader(MEDIASTORE_LOADER_ID, null, this);
                 camera_window();
 
             } else {
